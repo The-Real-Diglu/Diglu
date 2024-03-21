@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bod{
+  @apply bg-gray-800 text-gray-200
+}
+.fig{
+  @apply flex flex-col items-center justify-center
+}
+.figtext{
+  @apply flex flex-col items-center justify-center text-lg font-mono;
+}
