@@ -545,6 +545,7 @@ video {
 }
 
 .bod {
+  min-height: 100vh;
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
@@ -552,10 +553,9 @@ video {
 }
 
 .fig {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .figtext {

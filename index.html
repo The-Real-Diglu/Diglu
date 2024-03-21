@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <title>TheMapProject</title>
-  <meta charset=" utf-8">
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+  <style>
+    gmp-map {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      top: 40%;
+      align-items: center;
+    }
+
+    html,
+    body {
+      height: 100%;
+      justify-content: center;
+      display: flex;
+    }
+  </style>
   <link href="output.css" rel="stylesheet">
 </head>
 
 <body class="bod">
+  <gmp-map center="42.445106506347656,-76.4826431274414" zoom="14" map-id="DEMO_MAP_ID">
+    <gmp-advanced-marker position="42.445106506347656,-76.4826431274414" title="My location"></gmp-advanced-marker>
+  </gmp-map>
   <figure class="fig">
     <img src="ps_logo.png" alt="logo">
     <figcaption class="figtext">The Map Project</figcaption>

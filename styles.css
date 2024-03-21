@@ -4,10 +4,10 @@
 
 
 .bod{
-  @apply bg-gray-800 text-gray-200
+  @apply bg-gray-800 text-gray-200 min-h-screen;
 }
 .fig{
-  @apply flex flex-col items-center justify-center
+  @apply items-center justify-center text-center;
 }
 .figtext{
   @apply flex flex-col items-center justify-center text-lg font-mono;
