@@ -1,14 +1,97 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Oxygen', sans-serif;
+  background-color: #3c649f;
+}
+
+.top{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: 10vh;
+  background-color: #2c456b;
+  align-items: center;
+}
+
+.map{
+    height: 50%;
+    width: 50%;
+    position: fixed;
+    top: 40%;
+    align-items: center;
+}
+
+.fig img{
+  margin: 0;
+  padding: 0;
+  height: 100px;  
+}
+
+.caption { 
+  color: whitesmoke;
+  padding: 0;
+  margin-left: -35px;
+}
+
+.uppercaption{
+  font-size: 15pt;
+  margin-bottom: 2px;
+  padding-bottom: 0;
+}
+
+.lowercaption{
+  font-size: 18pt;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 15px;
+  display: flex;
+}
+
+li{
+  float: left;
+}
+
+li a{ 
+  display: block;
+  color: whitesmoke;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+  color: #1b2d48;
+}
 
 
-.bod{
-  @apply bg-gray-800 text-gray-200 min-h-screen;
+.side{
+  position: fixed;
+  display:flex;
+  background-color: #faf9f6;
+  top: 10vh;
+  height: 90vh;
+  width: 25vw;
+  justify-content: center;
 }
-.fig{
-  @apply items-center justify-center text-center;
+
+.events{
+  font-size: 20pt;
 }
-.figtext{
-  @apply flex flex-col items-center justify-center text-lg font-mono;
+
+.map{
+  position: fixed;
+  top: calc(10vh + 15px);
+  height: calc(90vh - 30px);
+  left: calc(25vw + 15px);
+  width: calc(100vw - 25vw - 30px);
 }

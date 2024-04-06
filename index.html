@@ -6,33 +6,45 @@
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=console.debug&libraries=maps,marker&v=beta">
     </script>
-  <style>
-    gmp-map {
-      height: 50%;
-      width: 50%;
-      position: absolute;
-      top: 40%;
-      align-items: center;
-    }
-
-    html,
-    body {
-      height: 100%;
-      justify-content: center;
-      display: flex;
-    }
-  </style>
-  <link href="output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
 </head>
 
-<body class="bod">
-  <gmp-map center="42.445106506347656,-76.4826431274414" zoom="14" map-id="DEMO_MAP_ID">
-    <gmp-advanced-marker position="42.445106506347656,-76.4826431274414" title="My location"></gmp-advanced-marker>
-  </gmp-map>
-  <figure class="fig">
-    <img src="ps_logo.png" alt="logo">
-    <figcaption class="figtext">The Map Project</figcaption>
-  </figure>
+<body>
+  <div class="top">
+
+    <figure class="fig">
+      <img src="ps_logo.png" alt="logo">
+    </figure>
+
+    <div class="caption">
+      <p class="uppercaption">The Map</p>
+      <p class="lowercaption">Project</p>
+    </div>
+
+    <ul class="nav">
+      <li><a href=index.html>MAP</a></li>
+      <li><a href=about.html>ABOUT</a></li>
+      <li><a href="mailto: ctw54@cornell.edu">CONTACT</a></li>
+    </ul>
+
+  </div>
+
+
+  <div class="side">
+    <p class="events">ALERTS</p>
+  </div>
+
+  <div class="map">
+    <gmp-map center="42.445106506347656,-76.4826431274414" zoom="14" map-id="DEMO_MAP_ID">
+      <gmp-advanced-marker position="42.445106506347656,-76.4826431274414" title="My location"></gmp-advanced-marker>
+    </gmp-map>
+  </div>
+
+
+
+
+
 </body>
 
 </html>
