@@ -78,9 +78,10 @@ li a:hover{
   position: fixed;
   display:flex;
   background-color: #faf9f6;
-  top: 10vh;
-  height: 90vh;
-  width: 25vw;
+  top: calc(10vh + 15px);
+  height: calc(90vh - 30px);
+  left: 15px;
+  width: calc(25vw - 15px);
   justify-content: center;
 }
 
@@ -94,4 +95,5 @@ li a:hover{
   height: calc(90vh - 30px);
   left: calc(25vw + 15px);
   width: calc(100vw - 25vw - 30px);
+
 }
