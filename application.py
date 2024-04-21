@@ -51,6 +51,6 @@ def geocode_address(address):
     else:
         return None
 // This is an example 
-location = geocode_address("1600 Amphitheatre Parkway, Mountain View, CA")
+location = geocode_address("410 Thurston Avenue, Ithaca, NY")
 print(location)
 
