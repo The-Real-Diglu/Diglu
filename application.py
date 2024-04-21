@@ -25,7 +25,7 @@ def obtain_audio(audio_file_path):
 
     for result in response.results:
         print("The transcript: {}".format(result.alternatives[0].transcript))
-// Need path
+// Need to know path
 transcribe_audio('path_to_your_audio_file.wav')
 
 // Obtain the location data
@@ -43,7 +43,7 @@ print(locations)
 https://www.google.com/maps/place/Ithaca,+NY/@42.4427012,-76.5189745,14z/data=!3m1!4b1!4m6!3m5!1s0x89d08182e0af88f7:0xae52768a56ece74!8m2!3d42.4439614!4d-76.5018807!16zL20vMDN2XzU?entry=ttu
 // Mapping
 def geocode_address(address):
-    google_maps = googlemaps.Client(key='NEED API KEY')
+    google_maps = googlemaps.Client(key='dba349b2-e3fd-11ee-a225-0e676e2c8629')
     geocode_result = gmaps.geocode(address)
     if geocode_result:
         the_location = geocode_result[0]['geometry']['location']
