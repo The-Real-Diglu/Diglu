@@ -35,12 +35,12 @@ def extract_locations(text):
     locations = [ent.text for ent in doc.ents if ent.label_ == "GPE" or ent.label_ == "LOC"]
     return locations
 
-text = "Officers were called to Elm Street."
+text = "The officers went to Ithaxa."
 locations = extract_locations(text)
 print(locations)
 
 // this is just the url for ithaca on Google Maps just need API key
-https://www.google.com/maps/place/Ithaca,+NY/@42.4427012,-76.5189745,14z/data=!3m1!4b1!4m6!3m5!1s0x89d08182e0af88f7:0xae52768a56ece74!8m2!3d42.4439614!4d-76.5018807!16zL20vMDN2XzU?entry=ttu
+// https://www.google.com/maps/place/Ithaca,+NY/@42.4427012,-76.5189745,14z/data=!3m1!4b1!4m6!3m5!1s0x89d08182e0af88f7:0xae52768a56ece74!8m2!3d42.4439614!4d-76.5018807!16zL20vMDN2XzU?entry=ttu
 // Mapping
 def geocode_address(address):
     google_maps = googlemaps.Client(key='dba349b2-e3fd-11ee-a225-0e676e2c8629')
