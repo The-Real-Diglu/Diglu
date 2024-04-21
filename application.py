@@ -7,7 +7,26 @@ import googlemaps
 from flask import Flask
 
 from google.cloud import speech
-// Convert text to speech
+import requests
+
+def use_broadcastify(stream_url, api_key):
+    headers = {'Authorization': f'Bearer {api_key}'}
+    response = requests.get(stream_url, headers=headers, stream=True)
+
+    if response.status_code == 200:
+        for block in response.iter_content(1024):
+            process_audio_block(block)
+    else:
+        print("Failed to connect to Broadcastify")
+
+def process_audio_block(block):
+    # This convert audio to text, extract data, and possibly map it
+    pass
+
+
+stream_url = "https://api.broadcastify.com/audio/feed/"
+api_key = "dba349b2-e3fd-11ee-a225-0e676e2c8629"
+connect_to_broadcastify(stream_url, api_key)
 def obtain_audio(audio_file_path):
     client = speech.SpeechClient()
 
