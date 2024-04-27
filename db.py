@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Simple Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=dba349b2-e3fd-11ee-a225-0e676e2c8629&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt8b9ZmEGcKnFHTJ63B6HFlVQovVC5ghs"
     async defer></script>
     <script>
     var map;
@@ -14,7 +14,7 @@
 <html>
 <head>
     <title>Simple Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=dba349b2-e3fd-11ee-a225-0e676e2c8629&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt8b9ZmEGcKnFHTJ63B6HFlVQovVC5ghs"
     async defer></script>
     <script>
     var map;
