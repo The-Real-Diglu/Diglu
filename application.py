@@ -19,10 +19,6 @@ def use_broadcastify(url, api_key):
     else:
         print("Failed to connect to Broadcastify")
 
-def process_audio_block(block):
-    # This convert audio to text, extract data, and possibly map it
-    pass
-
 
 url = "https://api.broadcastify.com/audio/feed/"
 api_key = "dba349b2-e3fd-11ee-a225-0e676e2c8629"
@@ -30,34 +26,33 @@ connect_to_broadcastify(stream_url, api_key)
 
 def obtain_audio(audio_file_path):
     client = speech.SpeechClient()
+    nlp = spacy.load("en_core_web_sm")
+
 
     with open(audio_file_path, 'rb') as audio_file:
         content = audio_file.read()
 
-    audio = speech.RecognitionAudio(content=content)
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-        sample_rate_hertz=16000,
+   audio = speech.RecognitionAudio(content=block)
+   config = speech.RecognitionConfig(
+        encoding=speech.RecognitionConfig.AudioEncoding.FLAC,  
         language_code="en-US",
     )
 
     response = client.recognize(config=config, audio=audio)
 
     for result in response.results:
-        print("The transcript: {}".format(result.alternatives[0].transcript))
-// Need to know path
-obtain_audio('path_to_your_audio_file.wav')
+        text = result.alternatives[0].transcript
+        print("Transcript: {}".format(text))
 
-// Obtain the location data
-def extract_locations(text):
-    nlp = spacy.load("en_core_web_sm")
-    doc = nlp(text)
-    locations = [ent.text for ent in doc.ents if ent.label_ == "GPE" or ent.label_ == "LOC"]
-    return locations
+       
+        doc = nlp(text)
+        locations = [ent.text for ent in doc.ents if ent.label_ == "GPE" or ent.label_ == "LOC"]
 
-text = "The officers went to Ithaca."
-locations = extract_locations(text)
-print(locations)
+        for location in locations:
+            geocoded_location = geocode_address(location)
+            if geocoded_location:
+                print(f"Geocoded location for {location}: {geocoded_location}")
+   
 
 # this is just the url for ithaca on Google Maps just need API key
 # https://www.google.com/maps/place/Ithaca,+NY/@42.4427012,-76.5189745,14z/data=!3m1!4b1!4m6!3m5!1s0x89d08182e0af88f7:0xae52768a56ece74!8m2!3d42.4439614!4d-76.5018807!16zL20vMDN2XzU?entry=ttu
