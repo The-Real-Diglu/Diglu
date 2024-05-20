@@ -25,6 +25,11 @@ url = "https://api.broadcastify.com/audio/feed/"
 api_key = "dba349b2-e3fd-11ee-a225-0e676e2c8629"
 connect_to_broadcastify(stream_url, api_key)
 
+# Function to be able to process audio blocks
+def process_audio_block(block):
+    obtain_audio(block)
+
+# Function to be able to obtain and process audio from a file
 def obtain_audio(audio_file_path):
     client = speech.SpeechClient()
     nlp = spacy.load("en_core_web_sm")
