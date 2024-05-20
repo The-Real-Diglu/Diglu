@@ -16,6 +16,7 @@ def use_broadcastify(url, api_key):
     if response.status_code == 200:
         for block in response.iter_content(1024):
             process_audio_block(block)
+            print(block)
     else:
         print("Failed to connect to Broadcastify")
 
