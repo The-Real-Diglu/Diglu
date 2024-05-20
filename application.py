@@ -65,7 +65,7 @@ def obtain_audio(audio_file_path):
 # Mapping
 def geocode_address(address):
     google_maps = googlemaps.Client(key='AIzaSyBt8b9ZmEGcKnFHTJ63B6HFlVQovVC5ghs')
-    geocode_result = gmaps.geocode(address)
+    geocode_result = google_maps.geocode(address)
     if geocode_result:
         the_location = geocode_result[0]['geometry']['location']
         return the_location
