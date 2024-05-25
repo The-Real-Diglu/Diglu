@@ -3,11 +3,19 @@ let map;
 function initMap() {
   console.log('Initializing map...');
   map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 42.445106506347656, lng: -76.4826431274414 },
+    center: { lat: 42.445106506347656, lng: -76.4826431274414 }, //evenutally this will be read from user input field
     zoom: 14,
+    disableDefaultUI: true,
+    draggable: false,
+    scrollwheel: true,
+    gestureHandling: 'cooperative',
+    maxZoom: 16,
+    minZoom: 12,
   });
   console.log('Map initialized.');
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof google === 'object' && typeof google.maps === 'object') {

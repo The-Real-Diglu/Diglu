@@ -82,6 +82,8 @@ li a:hover {
   position: relative;
   color: whitesmoke;
   font-size: 16px;
+
+  margin-left: 30vw;
 }
 
 .demobutton:hover {
@@ -154,4 +156,8 @@ li a:hover {
   height: 100%;
   overflow: auto;
   background-color: whitesmoke
+}
+
+.entryform{
+
 }
