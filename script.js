@@ -1,26 +1,40 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const response = await fetch('/api/events');
-    const events = await response.json();
-    initMap(events);
-  } catch (error) {
-    console.error('Error fetching events:', error);
+let map;
+
+function initMap() {
+  console.log('Initializing map...');
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 42.445106506347656, lng: -76.4826431274414 },
+    zoom: 14,
+  });
+  console.log('Map initialized.');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof google === 'object' && typeof google.maps === 'object') {
+    initMap();
+  } else {
+    console.error('Google Maps JavaScript API not loaded.');
   }
 });
 
-function initMap(events) {
-  const map = new google.maps.Map(document.querySelector('gmp-map'), {
-    center: { lat: 42.445106506347656, lng: -76.4826431274414 },
-    zoom: 14,
-    mapId: 'DEMO_MAP_ID',
-  });
+function addEventToMap(event) {
+  console.log('Adding event to map:', event);
 
-  events.forEach(event => {
-    new google.maps.Marker({
-      position: { lat: event.lat, lng: event.lng },
-      map: map,
-      title: event.description,
-    });
+  new google.maps.Marker({
+    position: { lat: event.lat, lng: event.lng },
+    map: map,
+    title: event.description,
   });
 }
 
+function addEventToEntries(event) {
+  const sideElement = document.querySelector('.side');
+  const entry = document.createElement('div');
+  entry.classList.add('entry');
+  entry.innerHTML = `
+    <h3>${event.case_id}</h3>
+    <p>${event.description}</p>
+    <p>${new Date(event.timestamp).toLocaleString()}</p>
+  `;
+  sideElement.appendChild(entry);
+}

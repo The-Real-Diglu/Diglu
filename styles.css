@@ -39,16 +39,12 @@ html, body{
 }
 
 .uppercaption{
-  font-size: 15pt;
-  margin-bottom: 2px;
+  font-size: 35pt;
+  align-items: center;
   padding-bottom: 0;
 }
 
-.lowercaption{
-  font-size: 18pt;
-  padding-top: 0;
-  margin-top: 0;
-}
+
 
 ul{
   list-style-type: none;
@@ -77,12 +73,13 @@ li a:hover{
 .side{
   position: fixed;
   display:flex;
-  background-color: #faf9f6;
+  background-color: #b4c5e4;
   top: calc(10vh + 15px);
   height: calc(90vh - 30px);
   left: 15px;
   width: calc(25vw - 15px);
   justify-content: center;
+  border-radius: 30px;
 }
 
 .events{
