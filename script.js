@@ -1,45 +1,26 @@
-let map;
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('/api/events');
+    const events = await response.json();
+    initMap(events);
+  } catch (error) {
+    console.error('Error fetching events:', error);
+  }
+});
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 42.4427012, lng: -76.5189745 },
-    zoom: 8,
+function initMap(events) {
+  const map = new google.maps.Map(document.querySelector('gmp-map'), {
+    center: { lat: 42.445106506347656, lng: -76.4826431274414 },
+    zoom: 14,
+    mapId: 'DEMO_MAP_ID',
   });
 
-  fetch('/api/events')
-    .then(response => response.json())
-    .then(events => {
-      events.forEach(event => {
-        new google.maps.Marker({
-          position: { lat: event.lat, lng: event.lng },
-          map: map,
-          title: event.description,
-        });
-      });
+  events.forEach(event => {
+    new google.maps.Marker({
+      position: { lat: event.lat, lng: event.lng },
+      map: map,
+      title: event.description,
     });
-
-  map.addListener('click', event => {
-    const lat = event.latLng.lat();
-    const lng = event.latLng.lng();
-    const case_id = prompt('Enter case ID:');
-    const description = prompt('Enter description:');
-
-    if (case_id && description) {
-      fetch('/api/events', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ case_id, lat, lng, description }),
-      })
-        .then(response => response.json())
-        .then(event => {
-          new google.maps.Marker({
-            position: { lat, lng },
-            map: map,
-            title: description,
-          });
-        });
-    }
   });
 }
+

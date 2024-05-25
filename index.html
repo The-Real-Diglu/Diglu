@@ -2,12 +2,13 @@
 <html>
 
 <head>
-  <title>TheMapProject</title>
+  <title>Diglu</title>
   <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=console.debug&libraries=maps,marker&v=beta">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=initMap&libraries=maps,marker">
     </script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -18,8 +19,8 @@
     </figure>
 
     <div class="caption">
-      <p class="uppercaption">The Map</p>
-      <p class="lowercaption">Project</p>
+      <p class="uppercaption">Diglu</p>
+      <p class="lowercaption">Map Project</p>
     </div>
 
     <ul class="nav">
@@ -30,7 +31,6 @@
 
   </div>
 
-
   <div class="side">
     <p class="events">ALERTS</p>
   </div>
@@ -40,11 +40,6 @@
       <gmp-advanced-marker position="42.445106506347656,-76.4826431274414" title="My location"></gmp-advanced-marker>
     </gmp-map>
   </div>
-
-
-
-
-
 </body>
 
 </html>
