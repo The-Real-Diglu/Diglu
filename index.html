@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Diglu</title>
+  <title>Diglu Demo Version</title>
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=initMap&libraries=maps,marker">
     </script>
@@ -18,14 +18,19 @@
     </figure>
 
     <div class="caption">
-      <p class="uppercaption">Diglu</p>
+      <p class="uppercaption">Diglu Demo Version</p>
     </div>
+
+    <button type="button" class="demobutton">ADD</button>
 
     <ul class="nav">
       <li><a href="index.html">MAP</a></li>
       <li><a href="about.html">ABOUT</a></li>
       <li><a href="mailto:digluteam@gmail.com">CONTACT</a></li>
     </ul>
+
+
+
   </div>
 
   <div class="side">
@@ -34,6 +39,13 @@
 
   <div class="map" id="map"></div>
 
+  <div id="popup" class="popup">
+    <div class="entryform">
+      <span id="closeform" class="close">&times;</span>
+      <p>test</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>

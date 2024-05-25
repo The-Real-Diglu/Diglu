@@ -38,3 +38,17 @@ function addEventToEntries(event) {
   `;
   sideElement.appendChild(entry);
 }
+
+document.getElementById('demobutton').addEventListener('click', function () {
+  document.getElementById('popup').style.display = 'block';
+});
+
+document.getElementById('closePopup').addEventListener('click', function () {
+  document.getElementById('popup').style.display = 'none';
+});
+
+window.addEventListener('click', function (event) {
+  if (event.target == document.getElementById('popup')) {
+    document.getElementById('popup').style.display = 'none';
+  }
+});
