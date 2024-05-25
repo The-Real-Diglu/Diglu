@@ -23,7 +23,7 @@ def use_broadcastify(url, api_key):
 
 url = "https://api.broadcastify.com/audio/feed/"
 api_key = "dba349b2-e3fd-11ee-a225-0e676e2c8629"
-connect_to_broadcastify(stream_url, api_key)
+connect_to_broadcastify(url, api_key)
 
 # Function to be able to process audio blocks
 def process_audio_block(block):
