@@ -3,7 +3,7 @@ let map;
 function initMap() {
   console.log('Initializing map...');
   map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 42.445106506347656, lng: -76.4826431274414 }, //evenutally this will be read from user input field
+    center: { lat: 42.445106506347656, lng: -76.4826431274414 }, // TODO: eventually parse zip code / location here
     zoom: 14,
     disableDefaultUI: true,
     draggable: false,
@@ -15,11 +15,10 @@ function initMap() {
   console.log('Map initialized.');
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof google === 'object' && typeof google.maps === 'object') {
     initMap();
+    startFetchingEvents();
   } else {
     console.error('Google Maps JavaScript API not loaded.');
   }
@@ -47,6 +46,23 @@ function addEventToEntries(event) {
   sideElement.appendChild(entry);
 }
 
+function fetchEvents() {
+  return fetch('/api/events')
+    .then(response => response.json())
+    .then(data => data.events);
+}
+
+function startFetchingEvents() {
+  setInterval(() => {
+    fetchEvents().then(events => {
+      events.forEach(event => {
+        addEventToMap(event);
+        addEventToEntries(event);
+      });
+    }).catch(error => console.error('Error fetching events:', error));
+  }, 5000); // Adjust the interval as needed
+}
+
 document.getElementById('demobutton').addEventListener('click', function () {
   document.getElementById('popup').style.display = 'block';
 });
@@ -60,3 +76,4 @@ window.addEventListener('click', function (event) {
     document.getElementById('popup').style.display = 'none';
   }
 });
+

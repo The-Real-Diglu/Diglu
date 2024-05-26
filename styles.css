@@ -125,14 +125,15 @@ li a:hover {
 .side {
   position: fixed;
   display: flex;
-  background-color: #b8c8ff;
+  background-color: #474973;
   top: calc(10vh + 15px);
   height: calc(90vh - 30px);
   left: 15px;
   width: calc(25vw - 15px);
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 90px;
   color: whitesmoke;
+  box-shadow: 7px 7px #161b33;
 }
 
 .events {
