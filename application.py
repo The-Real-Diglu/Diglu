@@ -8,13 +8,13 @@ from flask import Flask
 
 from google.cloud import speech
 import requests
+import openai
 
 
 app = Flask(__name__)
 
 openai.api_key = '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'
 
-google_maps = googlemaps.Client(key='AIzaSyBt8b9ZmEGcKnFHTJ63B6HFlVQovVC5ghs')
 
 def use_broadcastify(url, api_key):
     headers = {'Authorization': f'Bearer {api_key}'}
