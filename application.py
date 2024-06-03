@@ -87,6 +87,6 @@ api_key = "dba349b2-e3fd-11ee-a225-0e676e2c8629"
 use_broadcastify(url, api_key)
 
 # Example usage
-location = geocode_address("410 Thurston Avenue, Ithaca, NY")
-print(location)
+# location = geocode_address("410 Thurston Avenue, Ithaca, NY")
+# print(location)
 
