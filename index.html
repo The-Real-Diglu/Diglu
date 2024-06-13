@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Diglu</title>
+  <title>Diglu Demo</title>
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCmUxsKRLmQ4-GrtSqDoAkUv6E-nHBb-M&callback=initMap&libraries=maps,marker">
     </script>
@@ -13,21 +13,23 @@
 
 <body>
   <div class="top">
-
     <figure class="fig">
-      <img src="ps_logo.png" alt="logo">
+      <img src="diglu_logo.png" alt="logo">
     </figure>
 
     <div class="caption">
-      <p class="uppercaption">Diglu</p>
-      <p class="lowercaption">Map Project</p>
+      <p class="uppercaption">Diglu Demo</p>
     </div>
 
+    <button type="button" class="demobutton">ADD</button>
+
     <ul class="nav">
-      <li><a href=index.html>MAP</a></li>
-      <li><a href=about.html>ABOUT</a></li>
-      <li><a href="mailto: ctw54@cornell.edu">CONTACT</a></li>
+      <li><a href="index.html">MAP</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="mailto:digluteam@gmail.com">CONTACT</a></li>
     </ul>
+
+
 
   </div>
 
@@ -35,11 +37,15 @@
     <p class="events">ALERTS</p>
   </div>
 
-  <div class="map">
-    <gmp-map center="42.445106506347656,-76.4826431274414" zoom="14" map-id="DEMO_MAP_ID">
-      <gmp-advanced-marker position="42.445106506347656,-76.4826431274414" title="My location"></gmp-advanced-marker>
-    </gmp-map>
+  <div class="map" id="map"></div>
+
+  <div id="popup" class="popup">
+    <div class="entryform">
+      <span id="closeform" class="close">&times;</span>
+      <p>test</p>
+    </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
