@@ -9,6 +9,8 @@ from flask import Flask
 from google.cloud import speech
 import requests
 import openai
+from google.cloud.speech import enums, types
+from pydub import AudioSegment
 
 
 app = Flask(__name__)
@@ -29,36 +31,46 @@ def use_broadcastify(url, api_key):
 
 # Function to be able to process audio blocks
 def process_audio_block(block):
-    obtain_audio(block)
+    audio_segment = AudioSegment(block)
+    obtain_audio(audio_segment.raw_data)
 
 # Function to obtain and process audio from a file
-def obtain_audio(audio_file_path):
+def obtain_audio(audio_data):
     client = speech.SpeechClient()
     nlp = spacy.load("en_core_web_sm")
-
-    audio = speech.RecognitionAudio(content=audio_file_path)
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.FLAC,  
+    
+    config = types.RecognitionConfig(
+        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+        sample_rate_hertz=16000,
         language_code="en-US",
     )
+    streaming_config = types.StreamingRecognitionConfig(config=config)
 
-    response = client.recognize(config=config, audio=audio)
+    # Generate audio stream
+    requests = (types.StreamingRecognizeRequest(audio_content=audio_data) for audio_data in stream_audio(audio_data))
+    responses = client.streaming_recognize(streaming_config, requests)
 
-    for result in response.results:
-        text = result.alternatives[0].transcript
-        print("Transcript: {}".format(text))
+    for response in results 
+        for result in response.results:
+            text = result.alternatives[0].transcript
+            print("Transcript: {}".format(text))
 
-        # Use spaCy to identify potential locations
-        doc = nlp(text)
-        locations = [ent.text for ent in doc.ents if ent.label_ in ["GPE", "LOC"]]
+            # Use spaCy to identify potential locations
+            doc = nlp(text)
+            locations = [ent.text for ent in doc.ents if ent.label_ in ["GPE", "LOC"]]
 
-        for location in locations:
-            # Use GPT-3.5 to confirm the crime location
-            crime_location = refine_crime_location(text, location)
-            if crime_location:
-                geocoded_location = geocode_address(crime_location)
-                if geocoded_location:
-                    print(f"Geocoded location for {crime_location}: {geocoded_location}")
+            for location in locations:
+                # Use GPT-3.5 to confirm the crime location
+                crime_location = backup_crime_location(text, location)
+                if crime_location:
+                    geocoded_location = geocode_address(crime_location)
+                    if geocoded_location:
+                        print(f"Geocoded location for {crime_location}: {geocoded_location}")
+
+def stream_audio(audio_data):
+    chunk_size = 1024
+    for i in range(0, len(audio_data), chunk_size):
+        yield audio_data[i:i+chunk_size]
 
 # Function to refine crime location using GPT-3.5
 def backup_crime_location(transcript, location):
