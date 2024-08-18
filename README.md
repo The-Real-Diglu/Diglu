@@ -1,6 +1,6 @@
-# PoliceScanner
+# Diglu
 
-This is a test to make sure the brnach checkout was a success. 
+Fly by Night Technology
 
 ## packages
 mySQL:  npm install express mysql2

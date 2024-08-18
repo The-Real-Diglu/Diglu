@@ -1,7 +1,6 @@
 let map;
 
 function initMap() {
-  console.log('Initializing map...');
   map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 42.445106506347656, lng: -76.4826431274414 }, // TODO: eventually parse zip code / location here
     zoom: 14,
@@ -12,7 +11,6 @@ function initMap() {
     maxZoom: 16,
     minZoom: 12,
   });
-  console.log('Map initialized.');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
