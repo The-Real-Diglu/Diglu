@@ -101,4 +101,3 @@ use_broadcastify(url, api_key)
 # Example usage
 # location = geocode_address("410 Thurston Avenue, Ithaca, NY")
 # print(location)
-
