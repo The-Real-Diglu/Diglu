@@ -14,7 +14,7 @@ const requiredEnvVars = ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'];
 requiredEnvVars.forEach(varName => {
   if (!process.env[varName]) {
     console.error(`ERROR: ${varName} is not defined in the .env file.`);
-    process.exit(1); // Exit if any required environment variable is missing
+    process.exit(1);
   }
 });
 
